@@ -452,6 +452,7 @@ resource "aws_kms_key" "ebs" {
   description             = "Customer managed key to encrypt EKS managed node group volumes"
   deletion_window_in_days = 7
   policy                  = data.aws_iam_policy_document.ebs.json
+  enable_key_rotation = true
 }
 
 # This policy is required for the KMS key used for EKS root volumes, so the cluster is allowed to enc/dec/attach encrypted EBS volumes
