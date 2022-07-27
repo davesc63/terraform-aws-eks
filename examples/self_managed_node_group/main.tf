@@ -407,6 +407,7 @@ resource "aws_kms_key" "ebs" {
   description             = "Customer managed key to encrypt self managed node group volumes"
   deletion_window_in_days = 7
   policy                  = data.aws_iam_policy_document.ebs.json
+  enable_key_rotation = true
 }
 
 resource "aws_ec2_capacity_reservation" "targeted" {
