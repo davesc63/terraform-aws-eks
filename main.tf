@@ -57,6 +57,9 @@ resource "aws_eks_cluster" "this" {
     aws_security_group_rule.node,
     aws_cloudwatch_log_group.this
   ]
+  vpc_config {
+    endpoint_public_access = false
+  }
 }
 
 resource "aws_ec2_tag" "cluster_primary_security_group" {
